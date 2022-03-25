@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 10px 0 0 10px !important;
+}
+a {
+  text-decoration: none;
+}
+.bg-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh);
+}
+div + section.bg-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(92vh);
+  border-bottom: 3px solid #eee;
+}
+/* spinner */
+.spinner-border {
+  color: #77d3be;
+}
+/* forms */
+.btn.btn-custom {
+  background-color: #77d3be;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 13px;
+  font-size: 0.9rem;
+  width: 49%;
+  transition: all 0.5s ease-in-out;
+  box-shadow: none;
+}
+.btn-dropdown {
+  box-shadow: none !important;
+  outline: none;
+  background-color: #49ceaf !important;
+  border: none !important;
+  transition: all 0.5s ease-in-out;
+}
+.dropdown-menu.show {
+  transition: all 0.5s ease-in-out;
+}
+.btn.btn-custom:hover {
+  background-color: #77d3be;
+  color: #fff;
+}
+.btn.btn-custom[disabled] {
+  background-color: #e3f9f6;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  cursor: not-allowed;
+  transition: all 0.5s ease-in;
+}
+.card {
+  min-width: 300px !important;
+}
+/* topbar */
+nav {
+  background-color: #fff;
+  line-height: 1rem;
+  height: 6vh;
+  border: 4px solid #eee;
+  /* font-size: 1.5rem; */
+}
+.user {
+  height: 100%;
+}
+.user img {
+  width: 30px;
+  height: 30px;
+}
+
+/* chat section */
+.chat-users {
+  background-color: #eee;
+  transition: all 0.5s ease-in;
+}
+.chat-users.active {
+  background: #49ceaf;
+  color: #fff;
+}
+.chat-users img {
+  height: 40px;
+  width: 40px;
+}
+.user-left,
+.user-right {
+  height: calc(90vh) !important;
+  background-color: #fff;
+  position: relative;
+}
+.centerd-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.w-33 {
+  width: 35%;
+}
+.w-66 {
+  width: 63%;
+}
+
+/* message */
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.messageTop {
+  display: flex;
+}
+.messageText {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #49ceaf;
+  color: white;
+  max-width: 300px;
+  margin-bottom: 0;
+}
+.messageBottom {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.message.own {
+  align-items: flex-end;
+}
+
+.message.own .messageText {
+  background-color: rgb(245, 241, 241);
+  color: black;
+}
+.messageImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.chatBoxBottom {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatMessageInput {
+  width: 80%;
+  height: 90px;
+  padding: 10px;
+}
+
+.chatSubmitButton {
+  width: 70px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #49ceaf;
+  color: white;
+}
+.messageWrapper {
+  overflow-y: auto;
+  height: calc(78vh) !important;
+}
+/* emoji */
+.button-container {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 1rem;
+  position: absolute;
+  z-index: 100;
+  border: 1px solid;
+  bottom: 12%;
+}
+/* .emoji {
+  position: relative;
+} */
+.chatBoxBottom svg {
+  font-size: 1.5rem;
+  color: rgb(73 206 175);
+  cursor: pointer;
+}
+.emoji-scroll-wrapper::-webkit-scrollbar {
+  background-color: #080420;
+  width: 5px;
+}
+.emoji-categories button {
+  filter: contrast(0);
+}
+.emoji-search {
+  background-color: transparent;
+  border-color: #9a86f3;
+}
+.emoji-group:before {
+  background-color: #080420;
+}
+@media only screen and (max-width: 567px) {
+  .chat-users img + h5 {
+    font-size: 0.6rem;
+    margin: 0;
+  }
+  .chat-users {
+    align-items: center;
+  }
+  .chatBoxBottom svg {
+    display: none;
+  }
+  .messageWrapper {
+    overflow-y: auto;
+    height: calc(73vh) !important;
+  }
+  .user-left h2 {
+    font-size: 1rem;
+  }
+  .messageText {
+    font-size: 0.6rem;
+  }
+  .messageWrapper + div {
+    position: absolute;
+    bottom: 10px;
+  }
+  .chatBoxBottom {
+    padding-right: 0.5rem;
+  }
+}
