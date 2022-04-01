@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "./Footer";
 // import { useSelector } from "react-redux";
 
 export default function UserList({ users, changeChat }) {
@@ -8,7 +9,7 @@ export default function UserList({ users, changeChat }) {
     changeChat(user);
   };
   return (
-    <div className='w-33 ms-2 mt-2'>
+    <div className='w-33 ms-2 mt-2 position-relative'>
       <div className='p-2 user-left rounded-3'>
         <h2 className='mb-2'>Start conversation</h2>
         <hr />
@@ -33,6 +34,7 @@ export default function UserList({ users, changeChat }) {
             </div>
           );
         })}
+        <Footer />
       </div>
     </div>
   );

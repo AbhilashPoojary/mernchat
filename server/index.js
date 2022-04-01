@@ -34,7 +34,9 @@ app.get("/", (req, res) => {
   res.status(200).json("running on port 8800");
 });
 
-const server = app.listen(8800, () => console.log(`Server started on 8800`));
+const server = app.listen(process.env.PORT || 8800, () =>
+  console.log(`Server started on 8800`)
+);
 
 const io = socket(server, {
   cors: {
@@ -51,9 +53,16 @@ io.on("connection", (socket) => {
     onlineUsers.set(userId, socket.id);
   });
   socket.on("send-msg", (data) => {
+    console.log(onlineUsers);
     const sendUserSocket = onlineUsers.get(data.to);
     if (sendUserSocket) {
-      socket.to(sendUserSocket).emit("msg-receive", data.message);
+      socket.to(sendUserSocket).emit("msg-receive", data);
+    }
+  });
+  socket.on("delete-msg", (data) => {
+    const sendUserSocket = onlineUsers.get(data.to);
+    if (sendUserSocket) {
+      socket.to(sendUserSocket).emit("delete-msg-receive", data);
     }
   });
 });

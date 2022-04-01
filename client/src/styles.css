@@ -114,6 +114,7 @@ nav {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
+  margin-right: 0.5rem;
 }
 
 .messageTop {
@@ -171,7 +172,7 @@ nav {
 }
 .messageWrapper {
   overflow-y: auto;
-  height: calc(78vh) !important;
+  height: calc(74vh) !important;
 }
 /* emoji */
 .button-container {
@@ -206,6 +207,39 @@ nav {
 .emoji-group:before {
   background-color: #080420;
 }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #d8dbea;
+  background-color: #eee;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  margin-left: 5px;
+}
+.chatbox-bottom {
+  position: absolute;
+  width: 98%;
+  bottom: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #9e9e9e !important;
+  outline: 1px solid transparent;
+  border-radius: 25px;
+}
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px transparent;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #27ad8e;
+  font-weight: bold;
+  width: 100%;
+}
 @media only screen and (max-width: 567px) {
   .chat-users img + h5 {
     font-size: 0.6rem;
@@ -233,5 +267,10 @@ nav {
   }
   .chatBoxBottom {
     padding-right: 0.5rem;
+  }
+  #dropdown-basic {
+    padding: 3px 6px;
+    font-size: 0.6rem;
+    margin: 4px;
   }
 }

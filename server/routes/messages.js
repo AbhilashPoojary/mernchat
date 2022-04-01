@@ -11,7 +11,7 @@ router.post("/addmessage", async (req, res) => {
       sender: from,
     });
     if (data) {
-      return res.status(200).json("message added successfuly");
+      return res.status(200).json(data);
     } else {
       return res.status(200).json("failed to add message");
     }
@@ -40,6 +40,24 @@ router.post("/getmessage", async (req, res) => {
     res.status(200).json(projectMessages);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+//delete sent messages from db
+router.post("/deletemessage", async (req, res) => {
+  try {
+    const { messageId, senderId } = req.body;
+    const deleteMessage = await Messages.findOneAndDelete({
+      sender: senderId,
+      _id: messageId,
+    });
+    if (deleteMessage) {
+      res.status(200).json("messages deleted");
+    } else {
+      res.status(400).json("you can only delete sent messages");
+    }
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 

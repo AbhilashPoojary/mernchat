@@ -10,7 +10,6 @@ import { io } from "socket.io-client";
 export default function ChatPage() {
   const [users, setUsers] = useState([]);
   const [currentchat, setCurrentChat] = useState(undefined);
-  const [messages, setMessages] = useState([]);
   const user = useSelector((state) => state.loginReducer.currentUser);
   const socket = useRef();
 
@@ -32,17 +31,6 @@ export default function ChatPage() {
     }
   }, [user]);
 
-  useEffect(() => {
-    const loadChats = async () => {
-      const res = await axios.post("/messages/getmessage", {
-        from: user?._id,
-        to: currentchat?._id,
-      });
-      setMessages(res.data);
-    };
-    loadChats();
-  }, [currentchat]);
-
   const changeChat = (user) => {
     setCurrentChat(user);
   };
@@ -62,12 +50,7 @@ export default function ChatPage() {
           {currentchat === undefined ? (
             <Welcome />
           ) : (
-            <ChatBox
-              currentchat={currentchat}
-              user={user}
-              messages={messages}
-              socket={socket}
-            />
+            <ChatBox currentchat={currentchat} user={user} socket={socket} />
           )}
         </div>
       </section>
