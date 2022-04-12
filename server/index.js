@@ -6,8 +6,8 @@ const socket = require("socket.io");
 const dotenv = require("dotenv");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
-const conversationRoute = require("./routes/conversation");
 const messagesRoute = require("./routes/messages");
+const postsRoute = require("./routes/posts");
 
 dotenv.config();
 
@@ -27,8 +27,8 @@ app.use(morgan("common"));
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
-app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messagesRoute);
+app.use("/api/posts", postsRoute);
 
 app.get("/", (req, res) => {
   res.status(200).json("running on port 8800");
@@ -52,8 +52,8 @@ io.on("connection", (socket) => {
   socket.on("add-user", (userId) => {
     onlineUsers.set(userId, socket.id);
   });
+
   socket.on("send-msg", (data) => {
-    console.log(onlineUsers);
     const sendUserSocket = onlineUsers.get(data.to);
     if (sendUserSocket) {
       socket.to(sendUserSocket).emit("msg-receive", data);

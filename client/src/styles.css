@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
+form input.form-control:focus {
+  box-shadow: none;
+  border-color: #eee;
+}
 
 body {
   margin: 10px 0 0 10px !important;
@@ -17,7 +21,7 @@ a {
 div + section.bg-img {
   background-size: cover;
   background-repeat: no-repeat;
-  height: calc(92vh);
+  height: calc(91vh);
   border-bottom: 3px solid #eee;
 }
 /* spinner */
@@ -65,7 +69,7 @@ div + section.bg-img {
 nav {
   background-color: #fff;
   line-height: 1rem;
-  height: 6vh;
+  height: 7vh;
   border: 4px solid #eee;
   /* font-size: 1.5rem; */
 }
@@ -240,6 +244,118 @@ footer {
   font-weight: bold;
   width: 100%;
 }
+.dropdown-toggle::after {
+  content: none !important;
+}
+.card #dropdown-basic {
+  background-color: transparent !important;
+}
+.card .ms-2.dropdown {
+  position: absolute;
+  right: 0;
+}
+.card.mb-3.me-3 {
+  position: relative;
+}
+.custom-height {
+  max-height: 200px;
+}
+.card-footer-custom svg {
+  margin-right: 4px;
+  transition: linear 1s;
+}
+
+/* custom checkbox */
+.custom-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Hide the browser's default checkbox */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+  height: 25px;
+  width: 25px;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-checkbox .checkmark:after {
+  left: 9px;
+  top: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* comments */
+.comment-form input.form-control {
+  width: 80%;
+  font-size: 0.8rem;
+}
+.comment-btn {
+  width: auto;
+  background: none;
+  outline: none;
+  border: none;
+}
+.comment-section {
+  background-color: #eee;
+  border-radius: 7px;
+  padding: 5px;
+  margin-bottom: 15px;
+  max-height: 150px;
+  overflow: auto;
+  font-size: 0.8rem;
+}
+.card-footer-custom svg {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 567px) {
   .chat-users img + h5 {
     font-size: 0.6rem;
@@ -272,5 +388,20 @@ footer {
     padding: 3px 6px;
     font-size: 0.6rem;
     margin: 4px;
+  }
+  .add-post.me-3 {
+    width: 100% !important;
+  }
+  nav + div section.mt-3.ms-2 {
+    flex-direction: column;
+  }
+  .d-flex.flex-wrap.mt-3.justify-content-end {
+    padding: 0 !important;
+    margin-top: 10px !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .d-flex.flex-wrap.mt-3.justify-content-end div.card.mb-3.ms-3 {
+    margin: 0 !important;
   }
 }

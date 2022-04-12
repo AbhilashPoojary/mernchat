@@ -16,7 +16,9 @@ export default function ChatBox({ currentchat, user, socket }) {
   const handleEmojiPickerhideShow = () => {
     setShowEmojiPicker(!showEmojiPicker);
   };
-  console.log(socket.current.connected);
+  socket.current.on("userCount", function (data) {
+    console.log(data);
+  });
   const emitDelete = async (messageId) => {
     const remainingMsg = messages.filter((delMsg) => delMsg._id !== messageId);
     const deletedMsg = messages.filter((delMsg) => delMsg._id === messageId);

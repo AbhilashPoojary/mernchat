@@ -34,6 +34,7 @@ export default function ChatPage() {
   const changeChat = (user) => {
     setCurrentChat(user);
   };
+
   return (
     <section className='container'>
       <div>

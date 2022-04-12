@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import PostPage from "./pages/PostPage";
 function App() {
   const user = useSelector((state) => state.loginReducer.currentUser);
   return (
@@ -17,6 +18,10 @@ function App() {
         <Route
           path='/chat'
           element={user ? <ChatPage /> : <Navigate to='/' />}
+        ></Route>
+        <Route
+          path='/posts'
+          element={user ? <PostPage /> : <Navigate to='/' />}
         ></Route>
       </Routes>
     </BrowserRouter>
